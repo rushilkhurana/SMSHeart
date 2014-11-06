@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Patient Info</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form1">
+            <h3>General Info</h3>
+            <p>Name</p>
+            <form method="POST" action=""> {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit">
+                <P>D.O.B</P>
+                <select name="month" id="month" onchange="" size="1">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select name="day" id="day" onchange="" size="1">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="year" id="year" onchange="" size="1">
+                    <option value="2014">01</option>
+                    <option value="2013">02</option>
+                    <option value="2012">03</option>
+                    <option value="2011">04</option>
+                    <option value="2010">05</option>
+                    <option value="2009">06</option>
+                    <option value="2008">07</option>
+                    <option value="2007">08</option>
+                    <option value="2006">09</option>
+                    <option value="2005">10</option>
+                    <option value="2004">11</option>
+                    <option value="2003">12</option>
+                    <option value="2002">13</option>
+                    <option value="2001">14</option>
+                    <option value="2000">15</option>
+                    <option value="1999">16</option>
+                    <option value="1998">17</option>
+                    <option value="1997">18</option>
+                    <option value="1996">19</option>
+                    <option value="1995">20</option>
+                    <option value="1994">21</option>
+                    <option value="1993">22</option>
+                    <option value="1992">23</option>
+                    <option value="1991">24</option>
+                    <option value="1990">25</option>
+                    <option value="1989">26</option>
+                    <option value="1988">27</option>
+                    <option value="1987">28</option>
+                    <option value="1986">29</option>
+                    <option value="1985">30</option>
+                    <option value="1984">31</option>
+                </select>
+            </br> </br>
+            </form>
+        </div>
+        <div class="form2">
+            <h3>Asthma Triggers</h3>
+            <form>
+            Dust mites<input type="checkbox" name="dustMites" value="Dust">
+            Cats<input type="checkbox" name="cats" value="Cat">
+            Cigarette smoke<input type="checkbox" name="cigaretteSmoke" value="Cigarette">
+            Add new<!--more symptom -->
+            <input type="submit">
+        </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

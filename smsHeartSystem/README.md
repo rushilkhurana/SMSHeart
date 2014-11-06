@@ -1,13 +1,11 @@
-SMSHeart
-========
 
 #Documentation :
 ##Index:
-    1.  Installation 
-    3.  Project setup
-    4.  Fill out the setting
+    1.	Installation 
+    3.	Project setup
+    4.	Fill out the setting
     5.  Setup the views and Url link
-    6.  Build the html
+    6.	Build the html
 
 
 
@@ -115,7 +113,6 @@ SMSHeart
 
 ##Setup your html page
     1. In Django all html page can be put inside 'static/Template' folder. You can define your 'static/Template' folder root from 'setting.py' and then put your html file inside the Template folder. In our case, we have 'patientInfo.html'
-
 
 
 
