@@ -20,7 +20,6 @@ class smsHeart(models.Model):
         return smart_unicode(self.email)
 
 
-# class smsHeartIbbap(models.Model):
 
 
 
