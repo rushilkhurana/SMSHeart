@@ -10,9 +10,9 @@ class smsHeart(models.Model):
     updated = models.DateTimeField(auto_now_add = False, auto_now = True)
     birthdate = models.DateField()
     phone = models.CharField(max_length=10, null=True, blank=True)
-    dustMites = models.BooleanField(None);
-    cats = models.BooleanField(None);
-    cigaretteSmoke = models.BooleanField(None);
+   # dustMites = models.BooleanField(None);
+   # cats = models.BooleanField(None);
+   # cigaretteSmoke = models.BooleanField(None);
 
 
 

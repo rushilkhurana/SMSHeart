@@ -74,7 +74,9 @@
 ```
     So when you go to browser and type 'localhost:8080/home' it will direct you to the home page.
     3. Now you need to setup the view file, if the current folder(smsHeart/smsHeart) don't have one, create one called 'views.py'. And add following code:
+
 ```python
+
         from django.shortcuts import render, render_to_response, RequestContext
         # Create your views here.
         # We create a 'PatientForm' by improt the 'forms' model from Django
@@ -90,10 +92,13 @@
         return render_to_response("patientInfo.html",
                                   locals(),
                                   context_instance=RequestContext(request))
+                                  
 ```
     4. Since we are creating a form and taking the form entries from out app, so we need to create a 'forms.py' taking care the the form entries that coming from html part.
     5. Now we need to take those datafileds from html form entries to database. So inside 'model.py'(if it don't have, create one). Add the following code, will take the data entries
+
 ```python
+
     #importing library and smart unicode encoding
     from django.db import models
     from django.utils.encoding import smart_unicode
@@ -112,7 +117,8 @@
 
 ##Setup your html page
     1. In Django all html page can be put inside 'static/Template' folder. You can define your 'static/Template' folder root from 'setting.py' and then put your html file inside the Template folder. In our case, we have 'patientInfo.html'
-
+    2. When you want to change the style of your html pages, something like CSS/JS related files, you want to put them into 'Static' folder under your Django root folder. 
+    after you import your 'Static' files into the folder. You need to type 'python manage.py collectstatic' in command terminal. This will take all of your static files into Django app
 
 
 
