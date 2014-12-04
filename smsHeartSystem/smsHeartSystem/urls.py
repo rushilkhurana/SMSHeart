@@ -9,13 +9,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'smsHeart.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    #url(r'^about/', include('about.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
-)
+    url(r'^$', 'smsHeart.views.index', name='index'),
+    url(r'^login', 'smsHeart.views.login', name='login')
 
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

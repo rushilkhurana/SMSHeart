@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 from .forms import PatientForm
 
-def home(request):
+def index(request):
 
     form = PatientForm(request.POST or None)
 
@@ -18,5 +18,8 @@ def home(request):
                               context_instance=RequestContext(request))
 
 
-def about(request):
-    return HttpResponse("About page is ready");
+def login(request):
+    return render_to_response("login.html", locals(), context_instance=RequestContext(request));
+
+def patientForm(request):
+    return render_to_response("")
