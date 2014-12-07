@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from.models import smsHeart
+from.models import GreenZone_Form
 
 class smsHeartAdmin(admin.ModelAdmin):
     class Meta:
-        model = smsHeart
+        model = GreenZone_Form
 
-admin.site.register(smsHeart, smsHeartAdmin)
+admin.site.register(GreenZone_Form, smsHeartAdmin)

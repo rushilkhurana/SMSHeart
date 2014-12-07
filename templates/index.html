@@ -296,16 +296,17 @@
         </nav>
 
         <div id="page-wrapper">
+        <form method="post" id="ibaap_form">
             <div class="row">
                 <div class="col-md-11">
                     <h1 class="page-header">IBAAP</h1>
-                    
                 </div>
-                
+
                 <div class="col-md-1 saveButton">
-               		<button>Save</button>
+               		<!--<button>Save</button> -->
+                    <input type="submit" value="Save" name="ibaap_form">
                	</div>
-                
+                <!--end of form -->
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
@@ -313,232 +314,140 @@
                 
                 <div class="col-lg-12">
                     <div class="panel panel-green">
+                       <!-- <form method="POST" id="greenZone_Form"> -->
+
                         <div class="panel-heading">
                             Green Zone
                         </div>
                         <div class="panel-body">
-                            			<div class="form-group">
-                                            <label>Symptoms</label><br />
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">No cough, wheeze, chest tightness, or 
-												shortness of breath
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Can do usual activities
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="text" placeholder="Add New">
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Medications</label>
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>1</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Advair Diskus</option>
-		                                                <option>Advair HFA</option>
-		                                                <option>Budesonide (Pulmicort)</option>
-		                                                <option>Fluticasone (Flovent Diskus)</option>
-		                                                <option>Fluticasone (Flovent HFA)</option>
-		                                                <option>Mometasone (Asmanex) Twisthaler</option>
-		                                                <option>Montelukast (Singulair)</option>
-		                                                <option>Pulmicort Turbuhaler</option>
-		                                                <option>Symbicort HFA</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How much</option>
-		                                                <option>0.5mL</option>
-		                                                <option>1 capsule</option>
-		                                                <option>1 click</option>
-		                                                <option>1 inhalation</option>
-		                                                <option>1 puff</option>
-		                                                <option>1 spray</option>
-		                                                <option>2 capsules</option>
-		                                                <option>2 clicks</option>
-		                                                <option>2 inhalations</option>
-		                                                <option>2 puffs</option>
-		                                                <option>2 sprays</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every Morning</option>
-		                                                <option>Every Night</option>
-		                                                <option>Once per day</option>
-		                                                <option>Twice per day</option>
-		                                            </select>
-                                            	</div>
-                                            </div><br />
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>2</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Advair Diskus</option>
-		                                                <option>Advair HFA</option>
-		                                                <option>Budesonide (Pulmicort)</option>
-		                                                <option>Fluticasone (Flovent Diskus)</option>
-		                                                <option>Fluticasone (Flovent HFA)</option>
-		                                                <option>Mometasone (Asmanex) Twisthaler</option>
-		                                                <option>Montelukast (Singulair)</option>
-		                                                <option>Pulmicort Turbuhaler</option>
-		                                                <option>Symbicort HFA</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How much</option>
-		                                                <option>0.5mL</option>
-		                                                <option>1 capsule</option>
-		                                                <option>1 click</option>
-		                                                <option>1 inhalation</option>
-		                                                <option>1 puff</option>
-		                                                <option>1 spray</option>
-		                                                <option>2 capsules</option>
-		                                                <option>2 clicks</option>
-		                                                <option>2 inhalations</option>
-		                                                <option>2 puffs</option>
-		                                                <option>2 sprays</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every Morning</option>
-		                                                <option>Every Night</option>
-		                                                <option>Once per day</option>
-		                                                <option>Twice per day</option>
-		                                            </select>
-                                            	</div>
-                                            </div><br />
-                                           <button class="addMed">Add Med</button>
-                                            
-                                        </div>
-                                        <div class="form-group">
-	                                            <label>Special Instructions</label>
-	                                            <input class="form-control">
-										</div>
+                            <div class="form-group">
+                                <label>Symptoms</label><br />
+                                <label class="checkbox-inline">
+                                    {% csrf_token %}
+                                    {{greenZone_form.symptomsCheck}}No cough, wheeze, chest tightness, or shortness of breath
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{greenZone_form.usualActivities}}Can do usual activities
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{greenZone_form.addNewText}}
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Medications</label>
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                         {{greenZone_form.medOneNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                         {{greenZone_form.medOneUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{greenZone_form.medOneTimes}}
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{greenZone_form.medTwoNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                         {{greenZone_form.medTwoUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                         {{greenZone_form.medTwoTimes}}
+                                    </div>
+                                </div><br />
+                               <button class="addMed">Add Med</button>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Special Instructions</label>
+                                 {{greenZone_form.specialInstruction}}
+                            </div><br/>
+                         <!--  <input type="submit" value="Submit" name="greenZone_form"> -->
                         </div>
-                        
+                   <!--  </form> <!--end of GreenZone form -->
                     </div>
                     <!-- /.col-lg-4 -->
+
                 </div>            
               </div>
              <div class="row">   
                 <div class="col-lg-12">
                     <div class="panel panel-yellow">
+                     <!--   <form method="POST" id="yellowZone_Form"> <!-- yellow form start -->
                         <div class="panel-heading">
                             Yellow Zone
                         </div>
                         <div class="panel-body">
-                           			<div class="form-group">
-                                            <label>Symptoms</label><br />
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Cough, wheeze, chest tightness, or 
-												shortness of breath
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Waking at night
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Can do some, but not all, usual activities
-                                            </label>
-                                            
-                                            <label class="checkbox-inline">
-                                                <input type="text" placeholder="Add New">
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Step 1</label>
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>1</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Albuterol</option>
-		                                                <option>Beclomethasone (Qvar) HFA</option>
-		                                                <option>Ipatropium (Atrovent)</option>
-		                                                <option>Levalbuterol (Xoponex)</option>
-		                                                <option>Levalbuterol HFA</option>
-		                                                <option>Pro-Air (Albuterol) HFA</option>
-		                                                <option>Proventil (Albuterol) HFA</option>
-		                                                <option>Ventolin (Albuterol) HFA</option>
-		                                                
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Dose</option>
-		                                                <option>2 puffs</option>
-		                                                <option>4 puffs</option>
-		                                                <option>6 puffs</option>
-		                                                <option>1 nebulizer treatment</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every 4 hours</option>
-		                                            </select>
-                                            	</div>
-                                            </div><br />
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>2</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Albuterol</option>
-		                                                <option>Beclomethasone (Qvar) HFA</option>
-		                                                <option>Ipatropium (Atrovent)</option>
-		                                                <option>Levalbuterol (Xoponex)</option>
-		                                                <option>Levalbuterol HFA</option>
-		                                                <option>Pro-Air (Albuterol) HFA</option>
-		                                                <option>Proventil (Albuterol) HFA</option>
-		                                                <option>Ventolin (Albuterol) HFA</option>
-		                                                
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Dose</option>
-		                                                <option>2 puffs</option>
-		                                                <option>4 puffs</option>
-		                                                <option>6 puffs</option>
-		                                                <option>1 nebulizer treatment</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every 4 hours</option>
-		                                            </select>
-                                            	</div>                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group">
-	                                            <label>Step 2</label>
-	                                            <input class="form-control"><br />
-	                                            <input class="form-control">
-										</div>
-										<div class="form-group">
-	                                            <label>Special Instructions</label>
-	                                            <input class="form-control">
-										</div>
+                            <div class="form-group">
+                                <label>Symptoms</label><br />
+                                <label class="checkbox-inline">
+                                    {% csrf_token %}
+                                    {{yellowZone_form.yellowSymptomsCheck}}Cough, wheeze, chest tightness, or shortness of breath
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{yellowZone_form.yellowUsualActivities}}Waking at night
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{yellowZone_form.yellowUsualActivities2}}Can do some, but not all, usual activities
+                                </label>
+
+                                <label class="checkbox-inline">
+                                    {{yellowZone_form.yellowAddNewText}}
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Step 1</label>
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{yellowZone_form.yellowMedOneNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                         {{yellowZone_form.yellowMedOneUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{yellowZone_form.yellowMedOneTimes}}
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{yellowZone_form.yellowMedTwoNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{yellowZone_form.yellowMedTwoUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{yellowZone_form.yellowMedTwoTimes}}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                    <label>Step 2</label>
+                                    <input class="form-control"><br />
+                                    <input class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <label>Special Instructions</label>
+                                    {{yellowZone_form.yellowSpecialInstruction}}
+                            </div>
+                         <!--   <input type="submit" value="Submit" name="yellowZone_form"> -->
                         </div>
-                        
+                <!--     </form> <!--end of YellowZone form -->
                     </div>
                     <!-- /.col-lg-4 -->
                 </div>
@@ -546,109 +455,71 @@
              <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-red">
+                    <!--    <form method="POST" id="redZone_Form"> -->
                         <div class="panel-heading">
                             Red Zone
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                            <label>Symptoms</label><br />
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Very short of breath
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Quick-relief medicines have not helped
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">Cannot do usual activities
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="text" placeholder="Add New">
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Medications</label>
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>1</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Albuterol</option>
-		                                                <option>Beclomethasone (Qvar) HFA</option>
-		                                                <option>Ipatropium (Atrovent)</option>
-		                                                <option>Levalbuterol (Xoponex)</option>
-		                                                <option>Levalbuterol HFA</option>
-		                                                <option>Pro-Air (Albuterol) HFA</option>
-		                                                <option>Proventil (Albuterol) HFA</option>
-		                                                <option>Ventolin (Albuterol) HFA</option>
-		                                                
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Dose</option>
-		                                                <option>2 puffs</option>
-		                                                <option>4 puffs</option>
-		                                                <option>6 puffs</option>
-		                                                <option>1 nebulizer treatment</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every 20 minutes (max 40 min)</option>
-		                                            </select>
-                                            	</div>
-                                            </div><br />
-                                            <div class="row">
-                                            	<div class="col-xs-1 medNum">
-                                            		<p>2</p>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Med</option>
-		                                                <option>Albuterol</option>
-		                                                <option>Beclomethasone (Qvar) HFA</option>
-		                                                <option>Ipatropium (Atrovent)</option>
-		                                                <option>Levalbuterol (Xoponex)</option>
-		                                                <option>Levalbuterol HFA</option>
-		                                                <option>Pro-Air (Albuterol) HFA</option>
-		                                                <option>Proventil (Albuterol) HFA</option>
-		                                                <option>Ventolin (Albuterol) HFA</option>
-		                                                
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>Dose</option>
-		                                                <option>2 puffs</option>
-		                                                <option>4 puffs</option>
-		                                                <option>6 puffs</option>
-		                                                <option>1 nebulizer treatment</option>
-		                                            </select>
-                                            	</div>
-                                            	<div class="col-xs-3">
-		                                            <select class="form-control">
-		                                                <option>How often</option>
-		                                                <option>Every 20 minutes (max 40 min)</option>
-		                                            </select>
-                                            	</div>
-
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group">
-	                                            <label>Special Instructions</label>
-	                                            <input class="form-control">
-										</div>
+                                <label>Symptoms</label><br />
+                                <label class="checkbox-inline">
+                                    {{redZone_form.redSymptomsCheck}}Very short of breath
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{redZone_form.redSymptomsCheck2}}Quick-relief medicines have not helped
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{redZone_form.redSymptomsCheck2}}Cannot do usual activities
+                                </label>
+                                <label class="checkbox-inline">
+                                    {{redZone_form.redAddNewText}}
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Medications</label>
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedOneNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedOneUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedOneTimes}}
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="col-xs-1 medNum">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedTwoNameList}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedTwoUsage}}
+                                    </div>
+                                    <div class="col-xs-3">
+                                        {{redZone_form.redMedTwoTimes}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label>Special Instructions</label>
+                                    {{redZone_form.redSpecialInstruction}}
+                            </div>
+                        <!--   <input type="submit" value="Submit" name="redZone_form"> -->
                         </div>
-                        
+                    <!--   </form> -->
                     </div>
                     <!-- /.col-lg-4 -->
-                </div>            
                 </div>
-          </div>
+
+             </div>
+           </form>
+        </div>
         <!-- /#page-wrapper -->
 
     </div>
